@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO Meta Tags -->
+<title>vstools.site - Free Online Tools for Developers & Creators</title>
+<meta name="description" content="A powerful collection of free, fast, and secure online tools for productivity. Includes AI text generator, PDF converters, image tools, and developer utilities. No sign-up required.">
+<meta name="keywords" content="free tools, online tools, AI tools, PDF converter, image editor, developer tools, productivity tools, vstools, free online utilities, no sign-up tools">
+<link rel="canonical" href="https://vstools.site/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vstools.site/">
+<meta property="og:title" content="vstools.site - Free Online Tools for Developers & Creators">
+<meta property="og:description" content="A powerful collection of free, fast, and secure online tools for productivity. Includes AI text generator, PDF converters, image tools, and developer utilities.">
+<meta property="og:image" content="https://vstools.site/assets/og-image.png">
+<meta property="og:site_name" content="vstools.site">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://vstools.site/">
+<meta property="twitter:title" content="vstools.site - Free Online Tools for Developers & Creators">
+<meta property="twitter:description" content="A powerful collection of free, fast, and secure online tools for productivity.">
+<meta property="twitter:image" content="https://vstools.site/assets/og-image.png">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+
+<!-- Google Fonts: Poppins -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Schema.org Markup for SEO -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebSite",
+"name": "vstools.site",
+"url": "https://vstools.site/",
+"description": "A collection of free, fast, and easy-to-use online tools including AI text generator, PDF converters, image tools, and developer utilities.",
+"potentialAction": {
+"@type": "SearchAction",
+"target": "https://vstools.site/tools?q={search_term_string}",
+"query-input": "required name=search_term_string"
+}
+}
+</script>
+
+<style>
+:root {
+--primary-color: #007bff;
+--primary-gradient: linear-gradient(135deg, #007bff, #0056b3);
+--bg-color: #f8f9fa;
+--card-bg: #ffffff;
+--text-color: #212529;
+--heading-color: #0d1b2a;
+--subtle-text: #6c757d;
+--border-color: #dee2e6;
+--shadow-color: rgba(0, 0, 0, 0.05);
+--shadow-hover-color: rgba(0, 0, 0, 0.1);
+--header-height: 68px;
+}
+
+[data-theme="dark"] {
+--primary-color: #0084ff;
+--primary-gradient: linear-gradient(135deg, #0084ff, #3a9cff);
+--bg-color: #0d1b2a;
+--card-bg: #1b263b;
+--text-color: #e0e1dd;
+--heading-color: #ffffff;
+--subtle-text: #a9b4c2;
+--border-color: #415a77;
+--shadow-color: rgba(0, 0, 0, 0.2);
+--shadow-hover-color: rgba(0, 0, 0, 0.3);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+font-family: 'Poppins', sans-serif;
+background-color: var(--bg-color);
+color: var(--text-color);
+line-height: 1.6;
+transition: background-color 0.3s ease, color 0.3s ease;
+scroll-behavior: smooth;
+}
+html { scroll-padding-top: var(--header-height); }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.header {
+background-color: var(--card-bg);
+box-shadow: 0 2px 10px var(--shadow-color);
+padding: 1rem 0;
+position: sticky;
+top: 0;
+z-index: 1000;
+transition: background-color 0.3s ease;
+height: var(--header-height);
+}
+.navbar { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--heading-color); text-decoration: none; }
+.logo span { color: var(--primary-color); }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a {
+text-decoration: none;
+color: var(--text-color);
+font-weight: 500;
+position: relative;
+transition: color 0.3s ease;
+}
+.nav-links a::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -5px;
+left: 50%;
+transform: translateX(-50%);
+background: var(--primary-gradient);
+transition: width 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
+.nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+.nav-links a:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 4px; border-radius: 4px; }
+.nav-extra { display: flex; align-items: center; gap: 1rem; }
+.theme-toggle { background: none; border: none; color: var(--text-color); font-size: 1.2rem; cursor: pointer; transition: transform 0.3s ease, color 0.3s ease; padding: 5px; }
+.theme-toggle:hover { transform: scale(1.1) rotate(15deg); }
+.theme-toggle:focus-visible { outline: 2px solid var(--primary-color); border-radius: 50%; }
+.burger-menu { display: none; font-size: 1.5rem; background: none; border: none; color: var(--text-color); cursor: pointer; }
+.page { display: none; padding: 4rem 0; animation: fadeIn 0.5s ease-in-out; }
+.page.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: var(--heading-color); }
+.section-subtitle { text-align: center; font-size: 1.1rem; color: var(--subtle-text); max-width: 600px; margin: 0 auto 3rem auto; }
+#home-hero { text-align: center; padding: 6rem 0; background: var(--card-bg); }
+.hero-title { font-size: 3.5rem; font-weight: 700; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; }
+.hero-subtitle { font-size: 1.25rem; color: var(--subtle-text); max-width: 700px; margin: 0 auto 2rem auto; }
+.cta-button { display: inline-block; padding: 0.8rem 2rem; background: var(--primary-gradient); color: #fff; text-decoration: none; border-radius: 50px; font-weight: 600; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2); }
+.cta-button:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3); }
+.cta-button:focus-visible { outline: 3px solid var(--primary-color); outline-offset: 3px; }
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 4rem; }
+.feature-item { text-align: center; padding: 1.5rem; }
+.feature-item i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem; background: var(--card-bg); border-radius: 50%; width: 70px; height: 70px; line-height: 70px; box-shadow: 0 4px 15px var(--shadow-color); }
+.feature-item h3 { font-size: 1.3rem; color: var(--heading-color); margin-bottom: 0.5rem; }
+.search-container { margin-bottom: 2rem; text-align: center; }
+#search-bar { width: 100%; max-width: 500px; padding: 0.8rem 1.5rem; font-size: 1rem; border: 1px solid var(--border-color); border-radius: 50px; background-color: var(--card-bg); color: var(--text-color); transition: all 0.3s ease; }
+#search-bar:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); }
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+.tool-card { background-color: var(--card-bg); border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 15px var(--shadow-color); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid var(--border-color); display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+.tool-card:hover { transform: translateY(-8px); box-shadow: 0 8px 25px var(--shadow-hover-color); color: inherit; }
+.tool-card:focus-visible { transform: translateY(-8px); box-shadow: 0 8px 25px var(--shadow-hover-color); outline: 2px solid var(--primary-color); outline-offset: 4px; }
+.tool-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem; display: block; }
+.tool-card h3 { font-size: 1.2rem; color: var(--heading-color); margin-bottom: 0.5rem; }
+.tool-card p { font-size: 0.9rem; color: var(--subtle-text); flex-grow: 1; }
+.content-box { background-color: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: 0 4px 15px var(--shadow-color); max-width: 800px; margin: 0 auto; }
+.content-box p { margin-bottom: 1rem; }
+.content-box ul { padding-left: 20px; }
+.content-box li { margin-bottom: 0.5rem; }
+.contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.form-group { position: relative; }
+.form-group label { border: 0; clip: rect(1px, 1px, 1px, 1px); -webkit-clip-path: inset(50%); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; white-space: nowrap; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 0.8rem; font-family: 'Poppins', sans-serif; font-size: 1rem; border: 1px solid var(--border-color); border-radius: 8px; background-color: var(--bg-color); color: var(--text-color); transition: border-color 0.3s ease; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary-color); }
+.contact-form button { align-self: flex-start; padding: 0.8rem 2rem; background: var(--primary-gradient); color: #fff; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.contact-form button:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); }
+.contact-form button:focus-visible { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); outline: 3px solid var(--primary-color); outline-offset: 2px; }
+.footer { background-color: var(--card-bg); color: var(--subtle-text); padding: 3rem 0 1rem 0; margin-top: 4rem; border-top: 1px solid var(--border-color); transition: background-color 0.3s ease; }
+.footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; margin-bottom: 2rem; }
+.footer-section { flex: 1; min-width: 200px; }
+.footer-section h4 { color: var(--heading-color); margin-bottom: 1rem; }
+.footer-section ul { list-style: none; }
+.footer-section ul li { margin-bottom: 0.5rem; }
+.footer-section ul a { color: var(--subtle-text); text-decoration: none; transition: color 0.3s ease; }
+.footer-section ul a:hover { color: var(--primary-color); }
+.footer-section ul a:focus-visible { outline: 2px solid var(--primary-color); outline-offset: 4px; border-radius: 4px; }
+.social-icons a { font-size: 1.5rem; margin-right: 1rem; color: var(--subtle-text); transition: color 0.3s ease, transform 0.3s ease; display: inline-block; }
+.social-icons a:hover { color: var(--primary-color); transform: scale(1.1); }
+.social-icons a:focus-visible { color: var(--primary-color); outline: 2px solid var(--primary-color); outline-offset: 4px; border-radius: 50%; }
+.footer-bottom { text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--border-color); font-size: 0.9rem; }
+@media (max-width: 768px) {
+.nav-links { position: fixed; top: var(--header-height); left: -100%; width: 100%; height: calc(100vh - var(--header-height)); background-color: var(--card-bg); flex-direction: column; align-items: center; padding-top: 2rem; gap: 2.5rem; transition: left 0.4s ease-in-out; z-index: 999; }
+.nav-links.active { left: 0; }
+.nav-links a { font-size: 1.2rem; }
+.burger-menu { display: block; }
+.hero-title { font-size: 2.5rem; }
+.hero-subtitle { font-size: 1.1rem; }
+.section-title { font-size: 2rem; }
+.footer-content { flex-direction: column; text-align: center; }
+.social-icons { text-align: center; }
+.social-icons a { margin: 0 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+<div class="container navbar">
+<a href="/home" class="logo">vs<span>tools.site</span></a>
+<nav>
+<ul class="nav-links">
+<li><a href="/home" class="nav-link">Home</a></li>
+<li><a href="/tools" class="nav-link">Tools</a></li>
+<li><a href="/about" class="nav-link">About</a></li>
+<li><a href="/contact" class="nav-link">Contact</a></li>
+</ul>
+</nav>
+<div class="nav-extra">
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme">
+<i class="fas fa-moon" aria-hidden="true"></i>
+</button>
+<button class="burger-menu" id="burger-menu" aria-label="Open menu">
+<i class="fas fa-bars" aria-hidden="true"></i>
+</button>
+</div>
+</div>
+</header>
+
+<main>
+<!-- Home Page Section -->
+<section id="home" class="page">
+<div id="home-hero">
+<div class="container">
+<h1 class="hero-title">Powerful Tools, Simply Free</h1>
+<p class="hero-subtitle">Your one-stop destination for a suite of fast, reliable, and privacy-focused online utilities. Streamline your workflow with our AI tools, PDF converters, and developer essentials—all for free, no sign-up required.</p>
+<a href="/tools" class="cta-button">Explore All Tools <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</div>
+</div>
+
+<div class="container" style="padding-top: 4rem;">
+<h2 class="section-title">Featured Tools</h2>
+<p class="section-subtitle">Here are some of our most popular productivity tools to get you started.</p>
+<div class="tools-grid" id="featured-tools-grid">
+<!-- Featured tools will be populated by JS -->
+</div>
+</div>
+
+<div class="container" style="padding-top: 5rem;">
+<h2 class="section-title">Why Choose vstools.site?</h2>
+<p class="section-subtitle">We believe powerful tools should be simple, accessible, and respect your privacy.</p>
+<div class="features-grid">
+<div class="feature-item">
+<i class="fas fa-bolt" aria-hidden="true"></i>
+<h3>Blazing Fast</h3>
+<p>Our tools are optimized for speed. Get your tasks done in seconds, not minutes. No unnecessary loading or waiting.</p>
+</div>
+<div class="feature-item">
+<i class="fas fa-gift" aria-hidden="true"></i>
+<h3>Completely Free</h3>
+<p>No subscriptions, no hidden fees, no "premium" features. All our utilities are 100% free to use for everyone.</p>
+</div>
+<div class="feature-item">
+<i class="fas fa-shield-alt" aria-hidden="true"></i>
+<h3>Privacy First</h3>
+<p>We don't store your data. Any files you upload are processed and automatically deleted from our servers for your peace of mind.</p>
+</div>
+<div class="feature-item">
+<i class="fas fa-mouse-pointer" aria-hidden="true"></i>
+<h3>Easy to Use</h3>
+<p>With a clean and intuitive interface, our tools are designed for everyone, from beginners to professionals.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Tools Page Section -->
+<section id="tools" class="page">
+<div class="container">
+<h2 class="section-title">All Tools</h2>
+<p class="section-subtitle">Find the right tool for your task. Use the search bar to filter our extensive collection of utilities instantly.</p>
+<div class="search-container">
+<input type="search" id="search-bar" placeholder="Search for a tool (e.g., PDF, AI, Image...)" aria-label="Search for a tool">
+</div>
+<div class="tools-grid" id="all-tools-grid">
+<!-- All tools will be populated by JS -->
+</div>
+</div>
+</section>
+
+<!-- About Page Section -->
+<section id="about" class="page">
+<div class="container">
+<h2 class="section-title">About Us</h2>
+<p class="section-subtitle">Learn more about our mission and the philosophy behind vstools.site.</p>
+<div class="content-box">
+<h3>Our Mission</h3>
+<p>At vstools.site, our mission is to democratize access to high-quality digital tools. In a world of complex software and expensive subscriptions, we believe in the power of simplicity and accessibility. We aim to create a single, reliable hub where students, content creators, developers, and professionals can find the utilities they need to be more productive and creative, without any barriers.</p>
+<h3>Why We Built vstools.site</h3>
+<p>We are a small team of developers and creators who often found ourselves searching for simple, single-task online tools. We were tired of websites filled with ads, requiring sign-ups, or holding the best features behind a paywall. So, we decided to build the solution we wanted to use: a collection of tools that are:</p>
+<ul>
+<li><strong>Fast & Reliable:</strong> Built on modern technology for optimal performance.</li>
+<li><strong>User-Friendly:</strong> Clean design and intuitive user experience are our top priorities.</li>
+<li><strong>Completely Free:</strong> We are committed to keeping our tools free for everyone, forever.</li>
+<li><strong>Privacy-Focused:</strong> We respect your privacy. We do not store or sell your data. Files are processed securely and are never saved on our servers.</li>
+</ul>
+<p>We are constantly working to add new tools and improve existing ones based on user feedback. Thank you for being a part of our community!</p>
+</div>
+</div>
+</section>
+
+<!-- Contact Page Section -->
+<section id="contact" class="page">
+<div class="container">
+<h2 class="section-title">Get In Touch</h2>
+<p class="section-subtitle">Have a question, a suggestion for a new tool, or feedback? We'd love to hear from you!</p>
+<div class="content-box">
+<form class="contact-form" action="https://formspree.io/f/mjkrlzqd" method="POST">
+<div class="form-group">
+<label for="contact-name">Your Name</label>
+<input type="text" id="contact-name" name="name" placeholder="Your Name" required autocomplete="name">
+</div>
+<div class="form-group">
+<label for="contact-email">Your Email</label>
+<input type="email" id="contact-email" name="email" placeholder="Your Email" required autocomplete="email">
+</div>
+<div class="form-group">
+<label for="contact-message">Your Message</label>
+<textarea id="contact-message" name="message" rows="6" placeholder="Your Message" required></textarea>
+</div>
+<button type="submit">Send Message</button>
+</form>
+</div>
+</div>
+</section>
+
+<!-- ADDED: AI Text Generator Tool Page -->
+<section id="ai-text-generator" class="page">
+    <div class="container">
+        <h2 class="section-title">AI Text Generator</h2>
+        <p class="section-subtitle">Create compelling content instantly. Just enter a prompt and let the AI do the work.</p>
+        <div class="content-box">
+            <!-- Re-using form styles for consistency -->
+            <div class="contact-form"> 
+                <div class="form-group">
+                    <label for="ai-prompt">Enter your prompt</label>
+                    <textarea id="ai-prompt" name="prompt" rows="4" placeholder="e.g., Write a short blog post about the benefits of drinking water..."></textarea>
+                </div>
+                <button id="generate-text-btn" class="cta-button" style="align-self: center;">Generate Text <i class="fas fa-magic" aria-hidden="true"></i></button>
+            </div>
+            <div id="ai-output-container" style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 2rem; display: none;">
+                <h3>Generated Text:</h3>
+                <div id="ai-output" style="background-color: var(--bg-color); padding: 1rem; border-radius: 8px; min-height: 100px; white-space: pre-wrap; color: var(--text-color); transition: background-color 0.3s ease;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>vstools.site</h4>
+<p>Your go-to collection of free, secure, and user-friendly online tools designed to boost productivity for developers and creators everywhere.</p>
+</div>
+<div class="footer-section">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="/home">Home</a></li>
+<li><a href="/tools">Tools</a></li>
+<li><a href="/about">About</a></li>
+<li><a href="/contact">Contact</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4>Follow Us</h4>
+<div class="social-icons">
+<a href="https://twitter.com/vstools" aria-label="Follow us on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+<a href="https://github.com/vstools" aria-label="Check out our GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+<a href="https://linkedin.com/company/vstools" aria-label="Connect on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+© <span id="copyright-year">2024</span> vstools.site | All Rights Reserved.
+</div>
+</div>
+</footer>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+const App = {
+// --- Data ---
+toolsData: [
+{ id: 'ai-text-generator', name: 'AI Text Generator', icon: 'fa-robot', desc: 'Generate creative and high-quality text content for blogs, ads, or emails.', tags: 'ai text content' },
+{ id: 'ai-image-generator', name: 'AI Image Generator', icon: 'fa-image', desc: 'Turn your text descriptions into stunning, unique AI-generated art and images.', tags: 'ai image picture art' },
+{ id: 'ai-chatbot-tool', name: 'AI Chatbot Tool', icon: 'fa-comments', desc: 'Get instant answers, brainstorm ideas, and write code with an intelligent AI assistant.', tags: 'ai chat assistant' },
+{ id: 'voice-to-text-converter', name: 'Voice to Text Converter', icon: 'fa-microphone-alt', desc: 'Accurately transcribe your speech from audio files or live recordings into text.', tags: 'audio speech transcribe' },
+{ id: 'text-to-speech-tts', name: 'Text to Speech (TTS)', icon: 'fa-volume-up', desc: 'Convert any written text into natural-sounding speech with various voice options.', tags: 'audio voice tts' },
+{ id: 'pdf-to-word-converter', name: 'PDF to Word Converter', icon: 'fa-file-word', desc: 'Easily convert PDF documents into editable Microsoft Word (.docx) files.', tags: 'pdf word doc docx' },
+{ id: 'pdf-compressor', name: 'PDF Compressor', icon: 'fa-compress-arrows-alt', desc: 'Reduce the file size of your PDFs for easy sharing via email or web upload.', tags: 'pdf reduce size compress' },
+{ id: 'image-to-pdf', name: 'Image to PDF', icon: 'fa-file-image', desc: 'Combine multiple JPG, PNG, or other images into a single, organized PDF file.', tags: 'pdf image jpg png' },
+{ id: 'pdf-to-jpg-converter', name: 'PDF to JPG Converter', icon: 'fa-file-export', desc: 'Extract pages from a PDF and convert them into high-quality JPG images.', tags: 'pdf image jpg' },
+{ id: 'word-to-pdf', name: 'Word to PDF', icon: 'fa-file-pdf', desc: 'Convert your DOCX documents to universal PDF format while preserving layout.', tags: 'pdf word doc docx' },
+{ id: 'youtube-thumbnail-downloader', name: 'YouTube Thumbnail Downloader', icon: 'fa-download', desc: 'Download high-resolution thumbnail images from any YouTube video instantly.', tags: 'youtube video image' },
+{ id: 'video-to-mp3-converter', name: 'Video to MP3 Converter', icon: 'fa-music', desc: 'Extract audio from any video file and save it as a high-quality MP3 file.', tags: 'video audio mp3' },
+{ id: 'instagram-dp-viewer', name: 'Instagram DP Viewer', icon: 'fa-user-circle', desc: 'View and download any Instagram profile picture in full HD size anonymously.', tags: 'instagram image picture dp' },
+{ id: 'qr-code-generator', name: 'QR Code Generator', icon: 'fa-qrcode', desc: 'Create custom QR codes for URLs, text, Wi-Fi, vCards, and more.', tags: 'qr code link' },
+{ id: 'meta-tag-generator', name: 'Meta Tag Generator', icon: 'fa-code', desc: 'Generate SEO-friendly meta title and description tags for your web pages.', tags: 'seo developer meta' },
+{ id: 'keyword-density-checker', name: 'Keyword Density Checker', icon: 'fa-search', desc: 'Analyze text to find the keyword density for better SEO content optimization.', tags: 'seo developer keyword' },
+{ id: 'domain-name-generator', name: 'Domain Name Generator', icon: 'fa-globe', desc: 'Find creative and available domain names for your next project or business.', tags: 'developer domain web' },
+{ id: 'website-screenshot-tool', name: 'Website Screenshot Tool', icon: 'fa-camera', desc: 'Capture a full-page, high-resolution screenshot of any website with just a URL.', tags: 'developer image screenshot' },
+{ id: 'word-counter', name: 'Word Counter', icon: 'fa-calculator', desc: 'Count words, characters, sentences, and paragraphs in your text in real-time.', tags: 'text utility count' },
+{ id: 'json-formatter', name: 'JSON Formatter', icon: 'fa-sitemap', desc: 'Beautify, format, and validate your JSON data to make it readable and error-free.', tags: 'developer code json' },
+{ id: 'css-minifier', name: 'CSS Minifier', icon: 'fa-css3-alt', desc: 'Compress your CSS code to reduce file size and improve website loading speed.', tags: 'developer code css' },
+{ id: 'lorem-ipsum-generator', name: 'Lorem Ipsum Generator', icon: 'fa-paragraph', desc: 'Generate customizable placeholder text for your design and layout mockups.', tags: 'text utility placeholder' },
+{ id: 'color-picker', name: 'Color Picker', icon: 'fa-palette', desc: 'Pick colors from an interactive color wheel and get HEX, RGB, and HSL codes.', tags: 'design utility color' },
+{ id: 'password-generator', name: 'Password Generator', icon: 'fa-key', desc: 'Create strong, secure, and random passwords with customizable options.', tags: 'security utility password' }
+],
+
+elements: {
+allToolsGrid: document.getElementById('all-tools-grid'),
+featuredToolsGrid: document.getElementById('featured-tools-grid'),
+searchBar: document.getElementById('search-bar'),
+navLinks: document.querySelectorAll('.nav-link'),
+pages: document.querySelectorAll('.page'),
+themeToggle: document.getElementById('theme-toggle'),
+burgerMenu: document.getElementById('burger-menu'),
+navLinksContainer: document.querySelector('.nav-links'),
+copyrightYear: document.getElementById('copyright-year'),
+// ADDED: Elements for the AI Text Generator
+generateTextBtn: document.getElementById('generate-text-btn'),
+aiPrompt: document.getElementById('ai-prompt'),
+aiOutputContainer: document.getElementById('ai-output-container'),
+aiOutput: document.getElementById('ai-output'),
+},
+
+init() {
+this.setInitialTheme();
+this.populateGrids();
+this.setupEventListeners();
+this.handleRouting(); // Handle initial page load
+this.updateCopyrightYear();
+},
+
+setupEventListeners() {
+window.addEventListener('popstate', this.handleRouting.bind(this));
+document.body.addEventListener('click', this.handleLinkClick.bind(this));
+this.elements.themeToggle.addEventListener('click', this.toggleTheme.bind(this));
+this.elements.burgerMenu.addEventListener('click', this.toggleMobileMenu.bind(this));
+if(this.elements.searchBar) {
+    this.elements.searchBar.addEventListener('input', this.filterTools.bind(this));
+}
+// ADDED: Event listener for the new tool's button
+if(this.elements.generateTextBtn) {
+    this.elements.generateTextBtn.addEventListener('click', this.handleGenerateText.bind(this));
+}
+},
+
+handleLinkClick(e) {
+const link = e.target.closest('a');
+if (link && link.pathname.startsWith('/') && !link.getAttribute('href').startsWith('http')) {
+e.preventDefault(); 
+this.navigateTo(link.pathname);
+}
+},
+
+navigateTo(path) {
+if (window.location.pathname !== path) {
+history.pushState({}, '', path);
+}
+this.handleRouting();
+},
+
+createToolCard(tool) {
+const card = document.createElement('a');
+card.className = 'tool-card';
+// MODIFIED: Use the tool's id for the URL slug
+card.href = `/tool/${tool.id}`; 
+card.dataset.search = `${tool.name} ${tool.desc} ${tool.tags}`.toLowerCase();
+card.innerHTML = `
+<i class="fas ${tool.icon}" aria-hidden="true"></i>
+<h3>${tool.name}</h3>
+<p>${tool.desc}</p>
+`;
+return card;
+},
+
+populateGrids() {
+const allToolsFragment = document.createDocumentFragment();
+this.toolsData.forEach(tool => allToolsFragment.appendChild(this.createToolCard(tool)));
+if(this.elements.allToolsGrid) this.elements.allToolsGrid.appendChild(allToolsFragment);
+
+const featuredToolsFragment = document.createDocumentFragment();
+this.toolsData.slice(0, 6).forEach(tool => featuredToolsFragment.appendChild(this.createToolCard(tool)));
+if(this.elements.featuredToolsGrid) this.elements.featuredToolsGrid.appendChild(featuredToolsFragment);
+},
+
+// MODIFIED: Updated routing logic to handle specific tool pages
+handleRouting() {
+let path = window.location.pathname;
+// Handle root path
+if (path === '/' || path.endsWith('/index.html') || path === '') {
+    path = '/home';
+    if (window.location.pathname !== '/home') {
+        history.replaceState({}, '', '/home');
+    }
+}
+
+const pathParts = path.split('/').filter(p => p); // e.g., ['tool', 'ai-text-generator']
+const pageId = pathParts[0];
+
+// Check for tool pages like /tool/ai-text-generator
+if (pageId === 'tool' && pathParts.length > 1) {
+    const toolSlug = pathParts[1];
+    this.showPage(toolSlug, true); // Pass flag indicating it's a tool page
+} else {
+    // Handle main pages like /home, /tools, etc.
+    this.showPage(pageId || 'home');
+}
+this.closeMobileMenu();
+},
+
+// MODIFIED: Updated showPage logic to correctly highlight nav links
+showPage(pageId, isToolPage = false) {
+let pageFound = false;
+this.elements.pages.forEach(page => {
+    const isActive = page.id === pageId;
+    page.classList.toggle('active', isActive);
+    if(isActive) pageFound = true;
+});
+
+if (!pageFound) {
+    // Fallback to home page if no page is found
+    this.elements.pages.forEach(p => p.classList.toggle('active', p.id === 'home'));
+    this.updateNavLinks('/home');
+} else {
+    // If it's a tool page, keep the 'Tools' nav link active.
+    // Otherwise, activate the link corresponding to the page.
+    this.updateNavLinks(isToolPage ? '/tools' : `/${pageId}`);
+}
+window.scrollTo(0, 0);
+},
+
+updateNavLinks(activePath) {
+this.elements.navLinks.forEach(link => {
+link.classList.toggle('active', link.getAttribute('href') === activePath);
+});
+},
+
+filterTools(e) {
+const searchTerm = e.target.value.toLowerCase().trim();
+const toolCards = this.elements.allToolsGrid.querySelectorAll('.tool-card');
+toolCards.forEach(card => {
+const isVisible = card.dataset.search.includes(searchTerm);
+card.style.display = isVisible ? 'flex' : 'none';
+});
+},
+
+setInitialTheme() {
+const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+this.updateTheme(savedTheme);
+},
+
+toggleTheme() {
+const currentTheme = document.documentElement.getAttribute('data-theme');
+const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+this.updateTheme(newTheme);
+localStorage.setItem('theme', newTheme);
+},
+
+updateTheme(theme) {
+document.documentElement.setAttribute('data-theme', theme);
+const icon = this.elements.themeToggle.querySelector('i');
+icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+},
+
+toggleMobileMenu() {
+const isActive = this.elements.navLinksContainer.classList.toggle('active');
+this.elements.burgerMenu.setAttribute('aria-label', isActive ? 'Close menu' : 'Open menu');
+this.elements.burgerMenu.querySelector('i').className = isActive ? 'fas fa-times' : 'fas fa-bars';
+},
+
+closeMobileMenu() {
+if (this.elements.navLinksContainer.classList.contains('active')) {
+this.toggleMobileMenu();
+}
+},
+
+updateCopyrightYear() {
+if(this.elements.copyrightYear) {
+this.elements.copyrightYear.textContent = new Date().getFullYear();
+}
+},
+
+// ADDED: Logic for the AI Text Generator tool
+handleGenerateText() {
+    if (!this.elements.aiPrompt.value.trim()) {
+        alert('Please enter a prompt to generate text.');
+        this.elements.aiPrompt.focus();
+        return;
+    }
+
+    const btn = this.elements.generateTextBtn;
+    const outputContainer = this.elements.aiOutputContainer;
+    const outputEl = this.elements.aiOutput;
+
+    // Show loading state
+    btn.disabled = true;
+    btn.innerHTML = 'Generating... <i class="fas fa-spinner fa-spin"></i>';
+    outputContainer.style.display = 'block';
+    outputEl.textContent = 'Please wait while the AI is thinking...';
+
+    // Simulate AI response with a delay
+    setTimeout(() => {
+        const dummyText = `Based on your prompt, here is some high-quality generated content:\n\nIn today's fast-paced world, staying hydrated is more important than ever. Drinking an adequate amount of water daily can boost energy levels, improve skin health, and aid in digestion. Experts recommend drinking at least 8 glasses (around 2 liters) a day to maintain optimal physical and cognitive function.\n\nSo next time you feel a slump, reach for a glass of water instead of a sugary drink! It's a simple change that can have a profound impact on your overall well-being.`;
+        outputEl.textContent = dummyText;
+
+        // Reset button to original state
+        btn.disabled = false;
+        btn.innerHTML = 'Generate Text <i class="fas fa-magic"></i>';
+    }, 1500); // 1.5 second delay
+}
+};
+
+App.init();
+});
+</script>
+</body>
+</html>
