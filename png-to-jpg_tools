@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO: Optimized Title for the PNG to JPG Tool -->
+  <title>Free PNG to JPG Converter - High Quality & Batch Conversion | VSTools</title>
+  
+  <!-- SEO: Compelling meta description with relevant keywords -->
+  <meta name="description" content="Easily convert PNG to JPG online with VSTools. Our free tool supports batch conversion, quality adjustments, and is 100% secure. No uploads, instant conversion in your browser." />
+  
+  <!-- SEO: Relevant keywords for search engines -->
+  <meta name="keywords" content="png to jpg, convert png to jpg, png to jpeg, image converter, batch convert png, free online tools, vstools, image compressor, pdf repair tool, merge pdf, jpg to pdf, word to pdf" />
+  
+  <!-- SEO: Author of the website -->
+  <meta name="author" content="VSTools" />
+
+  <!-- SEO: Canonical URL to prevent duplicate content issues -->
+  <link rel="canonical" href="http://www.vstools.site/tools/png-to-jpg.html" />
+  
+  <!-- SEO: Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- SEO: Open Graph / Facebook Meta Tags -->
+  <meta property="og:title" content="Free PNG to JPG Converter - High Quality Online Tool | VSTools" />
+  <meta property="og:description" content="Instantly convert single or multiple PNG files to JPG format. Adjust quality for smaller file sizes. Fast, private, and completely free." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://www.vstools.site/tools/png-to-jpg.html" />
+  <meta property="og:image" content="http://www.vstools.site/og-image.jpg" />
+
+  <!-- SEO: Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free PNG to JPG Converter - High Quality Online Tool | VSTools" />
+  <meta name="twitter:description" content="Instantly convert single or multiple PNG files to JPG format. Adjust quality for smaller file sizes. Fast, private, and completely free." />
+  <meta name="twitter:image" content="http://www.vstools.site/og-image.jpg" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- JSZip library for creating ZIP files (free resource via CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  
+  <style>
+    /* Inheriting styles from the main page for consistency */
+    :root {
+      --primary: #005eff;
+      --bg: #f9f9f9;
+      --card-bg: #fff;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --border-color: #eee;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: #333; line-height: 1.6; }
+    header, footer { background: #fff; box-shadow: 0 2px 4px var(--shadow); padding: 1rem 2rem; }
+    header { position: sticky; top: 0; z-index: 1000; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1300px; margin: auto; }
+    header h2 { color: var(--primary); font-size: 1.8rem; }
+    nav ul { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+    nav ul li a { text-decoration: none; color: #333; font-weight: 500; }
+    nav ul li a:hover, nav ul li a.active { color: var(--primary); }
+    .container { padding: 2rem; max-width: 1300px; margin: auto; }
+    footer { text-align: center; padding: 2rem 1rem; margin-top: 2rem; font-size: 0.9rem; color: #777; }
+    .footer-links { display: flex; justify-content: center; gap: 1rem; margin-top: 0.5rem; }
+    .footer-links a { color: #555; text-decoration: none; }
+    .footer-links a:hover { color: var(--primary); }
+    
+    /* --- Specific Tool Page Styles --- */
+    .tool-container {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 15px var(--shadow);
+      margin-bottom: 3rem;
+    }
+    .tool-container h1 {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    .file-drop-area {
+      border: 3px dashed #ccc;
+      border-radius: 1rem;
+      padding: 3rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: #fafafa;
+    }
+    .file-drop-area.dragover {
+      border-color: var(--primary);
+      background-color: #f0f6ff;
+    }
+    .file-drop-area .icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .file-drop-area p {
+      margin: 0;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    #file-input { display: none; }
+
+    .tool-options {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background-color: #f9f9f9;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .quality-control {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .quality-control label { font-weight: 500; }
+    .quality-control input[type="range"] {
+      flex-grow: 1;
+      cursor: pointer;
+    }
+    #quality-value {
+      font-weight: bold;
+      color: var(--primary);
+      min-width: 30px;
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .btn {
+      padding: 0.8rem 1.8rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-primary { background-color: var(--primary); color: #fff; }
+    .btn-primary:hover { background-color: #004acb; }
+    .btn-secondary { background-color: #6c757d; color: #fff; }
+    .btn-secondary:hover { background-color: #5a6268; }
+    .btn-success { background-color: var(--success); color: #fff; }
+    .btn-success:hover { background-color: #218838; }
+    .btn:disabled { background-color: #ccc; cursor: not-allowed; }
+
+    #file-list {
+      margin-top: 2rem;
+      list-style: none;
+    }
+    #file-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      background: #fff;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .file-info { display: flex; align-items: center; gap: 1rem; word-break: break-all; }
+    .file-info i { font-size: 1.5rem; color: #6c757d; }
+    .file-status { font-weight: 500; padding: 0.2rem 0.5rem; border-radius: 0.3rem; }
+    .status-pending { color: var(--warning); }
+    .status-converting { color: var(--primary); }
+    .status-done { color: var(--success); }
+    .status-error { color: var(--danger); }
+    .file-download a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .file-download a:hover { text-decoration: underline; }
+
+    /* Content Article Styles */
+    .content-article {
+      margin-top: 3rem;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px var(--shadow);
+    }
+    .content-article h2 {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border-color);
+      color: #333;
+    }
+    .content-article h3 {
+      font-size: 1.4rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: var(--primary);
+    }
+    .content-article p, .content-article ul {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      color: #444;
+    }
+    .content-article ul {
+      padding-left: 2rem;
+    }
+    .content-article strong {
+      color: #000;
+    }
+    .content-article code {
+        background-color: #f1f1f1;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .content-article a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+    }
+    .content-article a:hover {
+        text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Using the same header for consistency -->
+  <header>
+    <div class="header-content">
+      <a href="/" style="text-decoration: none;"><h2>VSTools</h2></a>
+      <nav role="navigation">
+        <!-- Simplified nav for a tool page, or you can keep the full nav -->
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    
+    <div class="tool-container">
+      <h1><i class="fas fa-exchange-alt"></i> Online PNG to JPG Converter</h1>
+      
+      <label for="file-input" class="file-drop-area" id="drop-zone">
+        <div class="icon"><i class="fas fa-file-upload"></i></div>
+        <p><strong>Click to select</strong> or <strong>drag & drop</strong> PNG files here</p>
+        <small>Your files are processed in your browser and are never uploaded to a server.</small>
+      </label>
+      <input type="file" id="file-input" accept="image/png" multiple>
+
+      <div class="tool-options">
+        <div class="quality-control">
+          <label for="quality-slider">JPG Quality:</label>
+          <input type="range" id="quality-slider" min="1" max="100" value="90">
+          <span id="quality-value">90%</span>
+        </div>
+        <div class="action-buttons">
+          <button id="convert-btn" class="btn btn-primary" disabled>Convert Files</button>
+          <button id="download-zip-btn" class="btn btn-success" style="display: none;">Download All as ZIP</button>
+          <button id="clear-btn" class="btn btn-secondary" disabled>Clear All</button>
+        </div>
+      </div>
+      
+      <ul id="file-list"></ul>
+    </div>
+
+    <article class="content-article">
+      <h2>Your Ultimate Guide to PNG to JPG Conversion</h2>
+      <p>Welcome to VSTools, your one-stop solution for a variety of free online utilities. This page is dedicated to one of the most common image conversion tasks on the web: converting <strong>PNG to JPG</strong>. Whether you're a web developer optimizing images, a photographer managing your portfolio, or just someone trying to reduce an image's file size, our tool is designed to be fast, intuitive, and completely secure.</p>
+
+      <h3>What is a PNG File?</h3>
+      <p>PNG, which stands for Portable Network Graphics, is a raster graphics file format that supports lossless data compression. It was created as an improved, non-patented replacement for Graphics Interchange Format (GIF). The key features of PNG are:</p>
+      <ul>
+        <li><strong>Lossless Compression:</strong> This means no quality is lost when the file is compressed. The image you save is pixel-for-pixel identical to the original. This is crucial for images with sharp lines, text, or logos.</li>
+        <li><strong>Transparency:</strong> PNG's most celebrated feature is its support for an alpha channel, which allows for varying levels of transparency. This is why logos and icons are often in PNG format, as they can be placed over any background without a white box around them.</li>
+        <li><strong>Wide Color Range:</strong> PNG supports 24-bit RGB and 32-bit RGBA color palettes, allowing for millions of colors and rich, vibrant images.</li>
+      </ul>
+      <p>However, the primary drawback of PNG's lossless nature is its file size. For complex images like photographs, PNG files can become significantly larger than their JPG counterparts, which can slow down website loading times and take up more storage space.</p>
+
+      <h3>What is a JPG File?</h3>
+      <p>JPG (or JPEG), which stands for Joint Photographic Experts Group, is the most common image format used for digital photography and on the web. Its defining characteristic is its use of <strong>lossy compression</strong>.</p>
+      <ul>
+        <li><strong>Lossy Compression:</strong> When you save an image as a JPG, some data is permanently discarded to reduce the file size. This process is designed to discard information that the human eye is least likely to notice. You can control the level of compression, creating a trade-off between file size and image quality.</li>
+        <li><strong>Small File Size:</strong> This is the main advantage of JPG. For photographs and images with complex color gradients, JPGs can achieve a dramatic reduction in file size with very little perceptible loss in quality. This makes them ideal for web pages, emails, and online sharing.</li>
+        <li><strong>No Transparency:</strong> JPG does not support transparency. Any transparent areas in an original image will be filled with a solid color (usually white) when converted to JPG.</li>
+      </ul>
+
+      <h2>Why Convert PNG to JPG? The Core Benefits</h2>
+      <p>The decision to <strong>convert PNG to JPG</strong> is almost always driven by the need for optimization. Here are the primary reasons why you would use our free online tool:</p>
+      
+      <h3>1. Significant File Size Reduction</h3>
+      <p>This is the number one reason. A photograph saved as a PNG can be several megabytes, while the same image saved as a high-quality JPG can be just a few hundred kilobytes. By using our tool, you can use the quality slider to find the perfect balance. This is essential for:
+        <ul>
+            <li><strong>Faster Website Loading:</strong> Smaller images mean your website loads faster, improving user experience and SEO rankings.</li>
+            <li><strong>Saving Storage Space:</strong> Whether on your hard drive or in cloud storage, smaller files mean you can store more.</li>
+            <li><strong>Emailing and Sharing:</strong> Smaller files are easier and faster to attach to emails or share on social media. Our <strong>image compressor</strong> tool offers similar benefits with even more format support.</li>
+        </ul>
+      </p>
+
+      <h3>2. Universal Compatibility</h3>
+      <p>While PNG is widely supported, JPG is arguably the most universally accepted image format. Some older devices, specific software, or online platforms might have issues with PNG files, especially those with complex transparency. Converting to JPG ensures your image can be viewed and used virtually anywhere.</p>
+
+      <h3>3. Removing Transparency</h3>
+      <p>Sometimes, you need to flatten an image and remove its transparency. For example, if you're preparing an image for printing or for a platform that requires a solid background, converting to JPG is a quick and effective way to achieve this. The tool automatically fills transparent areas with a white background.</p>
+
+      <h2>How to Use Our Free PNG to JPG Converter</h2>
+      <p>We've designed our tool to be incredibly simple. All processing is done securely in your browser—your files are never uploaded to our servers. Here's a step-by-step guide:</p>
+      <ol>
+        <li><strong>Select Your Files:</strong> You can either click the "drag & drop" area to open a file selection dialog or simply drag your PNG files directly onto the box. You can select multiple files at once for <strong>batch conversion</strong>.</li>
+        <li><strong>Adjust JPG Quality (Optional):</strong> Use the slider to set the desired quality for your output JPG files. A higher value (e.g., 90%) means better quality and a larger file size. A lower value (e.g., 70%) results in a smaller file with slightly reduced quality. The default of 90% is a great starting point.</li>
+        <li><strong>Start the Conversion:</strong> Click the "Convert Files" button. The tool will process each file one by one, right in your browser. You'll see the status change from "Pending" to "Converting" to "Done!".</li>
+        <li><strong>Download Your Files:</strong> Once a file is converted, a "Download" link will appear next to it. You can download files individually. If you converted multiple files, a "Download All as ZIP" button will appear, allowing you to get all your converted JPGs in a single, convenient archive.</li>
+      </ol>
+      <p>It's that easy! No registration, no watermarks, no limits. Just a powerful tool at your fingertips.</p>
+
+      <h2>Frequently Asked Questions (FAQ) & Exploring Other Tools</h2>
+      <p>Here we answer some common questions and show how VSTools can help with other tasks, integrating keywords like <strong>pdf repair tool</strong> and <strong>merge pdf</strong> to help you discover our full suite of utilities.</p>
+      
+      <h3>Q: Is this PNG to JPG conversion process secure?</h3>
+      <p><strong>A:</strong> Absolutely. This is a major advantage of VSTools. Our tool operates entirely on the client-side, meaning in your web browser. Your PNG files are never sent to or stored on our servers. The conversion from <strong>PNG to JPG</strong> happens locally on your machine. This guarantees 100% privacy and security for your images.</p>
+
+      <h3>Q: Will I lose quality when I convert from PNG to JPG?</h3>
+      <p><strong>A:</strong> Yes, technically there is always some quality loss due to JPG's lossy compression. However, at high-quality settings (85-100%), this loss is virtually imperceptible to the human eye, especially for photographs. Our quality slider gives you full control over this trade-off.</p>
+      
+      <h3>Q: What happens to the transparency in my PNG file?</h3>
+      <p><strong>A:</strong> The JPG format does not support transparency. When you convert a transparent PNG to JPG, our tool automatically fills the transparent background with solid white. This is the standard and expected behavior for this type of conversion.</p>
+
+      <h3>Q: Can I convert other file types, like converting a Word document to a PDF?</h3>
+      <p><strong>A:</strong> This specific tool is for PNG to JPG. However, VSTools is a comprehensive suite! We have a dedicated <strong>Word to PDF</strong> converter that allows you to easily transform your `.doc` or `.docx` files into universally readable PDFs with just a few clicks.</p>
+
+      <h3>Q: What if I need to combine multiple PDF files into one?</h3>
+      <p><strong>A:</strong> We've got you covered! After you've converted your images or documents, you might need to organize them. Our powerful <strong>merge PDF</strong> tool lets you combine several PDF files into a single, ordered document. It's perfect for creating reports, presentations, or archives.</p>
+
+      <h3>Q: My PDF file is corrupted and won't open. Can you help?</h3>
+      <p><strong>A:</strong> While this page focuses on image conversion, we understand that document problems are common. If you have a damaged file, our free <strong>PDF repair tool</strong> is designed to analyze and attempt to recover data from corrupted or broken PDF files. It's an invaluable utility when you're facing a potential data loss.</p>
+
+      <h3>Q: Can I also convert images TO a PDF? For example, JPG to PDF?</h3>
+      <p><strong>A:</strong> Yes! Creating PDFs from images is a very common task. Our <strong>JPG to PDF</strong> tool is one of our most popular utilities. You can upload multiple JPGs, reorder them, and combine them into a single, professional-looking PDF document.</p>
+
+      <h3>Q: How many files can I convert at once?</h3>
+      <p><strong>A:</strong> There is no hard limit on the number of files, but performance depends on your computer's processing power, as all the work is done locally. For a large number of files (e.g., 50+), we recommend doing them in smaller batches for the smoothest experience.</p>
+      
+      <h2>Conclusion: Your Go-To Tool for PNG to JPG Conversion</h2>
+      <p>In the digital world, managing image formats is a fundamental skill. Understanding when to use PNG and when to use JPG is key to creating fast, efficient, and compatible digital content. Our free <strong>PNG to JPG converter</strong> empowers you to make that switch effortlessly.</p>
+      <p>With features like batch processing, adjustable quality, and a commitment to privacy, VSTools provides a professional-grade solution without any cost or hassle. Bookmark this page for all your future conversion needs, and don't forget to explore our wide range of other utilities, from our <strong>image compressor</strong> and <strong>PDF to Word</strong> converter to essential developer tools like our <strong>QR Code Generator</strong>.</p>
+    </article>
+
+  </main>
+  
+  <!-- Using the same footer for consistency -->
+  <footer>
+    <p>© 2024 VSTools. All rights reserved.</p>
+    <div class="footer-links">
+        <a href="/#privacy-policy">Privacy Policy</a>
+        <span>·</span>
+        <a href="/#disclaimer">Disclaimer</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fileInput = document.getElementById('file-input');
+      const dropZone = document.getElementById('drop-zone');
+      const qualitySlider = document.getElementById('quality-slider');
+      const qualityValue = document.getElementById('quality-value');
+      const convertBtn = document.getElementById('convert-btn');
+      const downloadZipBtn = document.getElementById('download-zip-btn');
+      const clearBtn = document.getElementById('clear-btn');
+      const fileList = document.getElementById('file-list');
+
+      let filesToProcess = [];
+      let convertedFilesData = [];
+
+      // --- Drag & Drop ---
+      dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('dragover');
+      });
+      dropZone.addEventListener('dragleave', () => {
+        dropZone.classList.remove('dragover');
+      });
+      dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('dragover');
+        const files = e.dataTransfer.files;
+        handleFiles(files);
+      });
+      
+      // --- File Input Change ---
+      fileInput.addEventListener('change', (e) => {
+        handleFiles(e.target.files);
+      });
+
+      // --- UI Updates ---
+      qualitySlider.addEventListener('input', (e) => {
+        qualityValue.textContent = `${e.target.value}%`;
+      });
+      
+      function handleFiles(files) {
+        // Filter for PNG files only
+        const pngFiles = Array.from(files).filter(file => file.type === 'image/png');
+        if (pngFiles.length === 0 && files.length > 0) {
+            alert('Only PNG files are supported. Please select valid PNG images.');
+            return;
+        }
+
+        pngFiles.forEach(file => {
+          if (!filesToProcess.some(f => f.name === file.name && f.size === file.size)) {
+            filesToProcess.push(file);
+            const listItem = document.createElement('li');
+            listItem.id = `file-${filesToProcess.length - 1}`;
+            listItem.innerHTML = `
+              <div class="file-info">
+                <i class="fas fa-file-image"></i>
+                <span>${file.name}</span>
+              </div>
+              <div class="file-status status-pending">Pending</div>
+              <div class="file-download"></div>
+            `;
+            fileList.appendChild(listItem);
+          }
+        });
+        updateButtonStates();
+      }
+
+      function updateButtonStates() {
+        const hasFiles = filesToProcess.length > 0;
+        convertBtn.disabled = !hasFiles || convertedFilesData.length > 0;
+        clearBtn.disabled = !hasFiles;
+        downloadZipBtn.style.display = convertedFilesData.length > 1 ? 'inline-block' : 'none';
+      }
+
+      // --- Conversion Logic ---
+      convertBtn.addEventListener('click', async () => {
+        if (filesToProcess.length === 0) return;
+        
+        convertBtn.disabled = true;
+        convertBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Converting...';
+
+        for (let i = 0; i < filesToProcess.length; i++) {
+          const file = filesToProcess[i];
+          const listItem = document.getElementById(`file-${i}`);
+          const statusDiv = listItem.querySelector('.file-status');
+          const downloadDiv = listItem.querySelector('.file-download');
+          
+          try {
+            statusDiv.textContent = 'Converting...';
+            statusDiv.className = 'file-status status-converting';
+            
+            const jpgDataUrl = await convertPngToJpg(file);
+            const newFileName = file.name.replace(/\.png$/i, '.jpg');
+
+            convertedFilesData.push({ name: newFileName, dataUrl: jpgDataUrl });
+
+            downloadDiv.innerHTML = `<a href="${jpgDataUrl}" download="${newFileName}">Download</a>`;
+            statusDiv.textContent = 'Done!';
+            statusDiv.className = 'file-status status-done';
+          } catch (error) {
+            console.error('Conversion Error:', error);
+            statusDiv.textContent = 'Error';
+            statusDiv.className = 'file-status status-error';
+            downloadDiv.textContent = 'Conversion failed.';
+          }
+        }
+        
+        convertBtn.innerHTML = 'Convert Files';
+        updateButtonStates();
+      });
+
+      function convertPngToJpg(file) {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = (event) => {
+            const img = new Image();
+            img.src = event.target.result;
+            img.onload = () => {
+              const canvas = document.createElement('canvas');
+              canvas.width = img.width;
+              canvas.height = img.height;
+              
+              const ctx = canvas.getContext('2d');
+              // Fill background with white, since JPG doesn't support transparency
+              ctx.fillStyle = '#FFFFFF';
+              ctx.fillRect(0, 0, canvas.width, canvas.height);
+              ctx.drawImage(img, 0, 0);
+              
+              const quality = parseInt(qualitySlider.value, 10) / 100;
+              const dataUrl = canvas.toDataURL('image/jpeg', quality);
+              resolve(dataUrl);
+            };
+            img.onerror = (error) => reject(error);
+          };
+          reader.onerror = (error) => reject(error);
+        });
+      }
+      
+      // --- Download & Clear Logic ---
+      downloadZipBtn.addEventListener('click', async () => {
+        if (convertedFilesData.length === 0) return;
+        
+        downloadZipBtn.disabled = true;
+        downloadZipBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Zipping...';
+
+        const zip = new JSZip();
+        convertedFilesData.forEach(file => {
+          // Get base64 content from data URL
+          const base64Data = file.dataUrl.split(',')[1];
+          zip.file(file.name, base64Data, { base64: true });
+        });
+
+        zip.generateAsync({ type: 'blob' }).then(content => {
+          const link = document.createElement('a');
+          link.href = URL.createObjectURL(content);
+          link.download = 'vstools-converted-images.zip';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          
+          downloadZipBtn.disabled = false;
+          downloadZipBtn.innerHTML = 'Download All as ZIP';
+        });
+      });
+
+      clearBtn.addEventListener('click', () => {
+        filesToProcess = [];
+        convertedFilesData = [];
+        fileList.innerHTML = '';
+        fileInput.value = ''; // Reset file input
+        updateButtonStates();
+      });
+
+    });
+  </script>
+
+</body>
+</html>
